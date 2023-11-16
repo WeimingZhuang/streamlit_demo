@@ -37,6 +37,7 @@ with col1:
     if query_button1:
         result1 = query.query1(str(date1))
         st.write('突变日期查询表: ')
+        print(result1)
         st.write(result1)
 
     # 根据表单2的查询按钮点击状态执行查询
