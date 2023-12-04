@@ -13,19 +13,42 @@ today = date.today()
 # 计算一个月前和一个月后的日期
 one_month_ago = today - timedelta(days=30)
 one_month_later = today + timedelta(days=30)
-
+one_week_later = today + timedelta(days=7)
+Three_days_later = today + timedelta(days=3)
+Ten_days_later = today + timedelta(days=10)
+Fifteen_days_later = today + timedelta(days=15)
+Twenty_days_later = today + timedelta(days=20)
+Twentyfive_days_later = today + timedelta(days=25)
+Current_day = today
 
 # 第一个查询表单
-st.sidebar.subheader('突变日期查询')
-date1 = st.sidebar.date_input('请选择日期', min_value=one_month_ago, max_value=one_month_later, value=today)
-query_button1 = st.sidebar.button('查询', key='query1')
-
+#  st.sidebar.subheader('未来3日突变')
+date1 = Three_days_later
+query_button1 = st.sidebar.button('未来3日突变查询', key='query1')
 # 第二个查询表单
-st.sidebar.subheader('突变出现日期查询')
+#  st.sidebar.subheader('未来7日天突变')
+date3 = one_week_later
+query_button3 = st.sidebar.button('未来7日突变查询', key='query3')
+# 第四个查询表单
+date5 = Ten_days_later
+query_button5 = st.sidebar.button('未来10日突变查询', key='query5')
+# 第五个查询表单
+date6 = Fifteen_days_later
+query_button6 = st.sidebar.button('未来15日突变查询', key='query6')
+# 第六个查询表单
+date7 = Twenty_days_later
+query_button7 = st.sidebar.button('未来20日突变查询', key='query7')
+# 第七个查询表单
+date8 = Twentyfive_days_later
+query_button8 = st.sidebar.button('未来25日突变查询', key='query8')
+# 第三个查询表单
+st.sidebar.subheader('突变组合查询')
 map_location = st.sidebar.selectbox('选择地图', query.map_location)
 game_mode = st.sidebar.selectbox('选择玩法', query.game_mode)
-date2 = st.sidebar.date_input('选择日期', min_value=one_month_ago, max_value=one_month_later, value=today)
+date2 = one_month_later
+# date2 = st.sidebar.date_input('选择日期', min_value=one_month_ago, max_value=one_month_later, value=today)
 query_button2 = st.sidebar.button('查询', key='query2')
+
 
 # 主页面内容
 st.title('After the Fall 突变查询器')
@@ -36,17 +59,43 @@ with col1:
     # 根据表单1的查询按钮点击状态执行查询
     if query_button1:
         result1 = query.query1(str(date1))
-        st.write('突变日期查询表: ')
+        st.write('未来3日突变: ')
         st.write(result1)
-
+    if query_button3:
+        result3 = query.query3(str(date3))
+        st.write('未来7日突变: ')
+        st.write(result3)
+    if query_button5:
+            result5 = query.query5(str(date5))
+            st.write('未来10日突变: ')
+            st.write(result5)
+    if query_button6:
+            result6 = query.query6(str(date6))
+            st.write('未来15日突变: ')
+            st.write(result6)
+    if query_button7:
+        result7 = query.query7(str(date7))
+        st.write('未来20日突变: ')
+        st.write(result7)
+    if query_button8:
+            result8 = query.query8(str(date8))
+            st.write('未来25日突变: ')
+            st.write(result8)
     # 根据表单2的查询按钮点击状态执行查询
     if query_button2:
         result2 = query.query2(map_location, game_mode, str(date2))
-        st.write('突变出现日期查询表: ')
+        st.write('突变查询: ')
         st.write(result2)
 
 with col2:
+    # 显示当日突变
+    date4 = Current_day
+    result4 = query.query4(str(date4))
+    st.write('今日突变: ')
+    st.write(result4)
+
+    # 显示说明
     st.write('After the Fall查询器使用说明：')
-    st.write('1、“突变日期查询表”， 选择日期，再点击查询，可以查询当前到指定日期期间的突变')
-    st.write('2、“突变出现日期查询表”，选择地图、玩法和日期，再点击查询，可以查询具体某个突变的出现日期。')
+    st.write('1、点击左上角   “<”   ,打开查询界面。点击   “x”   ，关闭查询界面。')
+    st.write('2、“突变组合查询”，可查询某个突变组合在未来30天的出现日期。')
     st.write('数据提供: E-11')
