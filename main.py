@@ -18,11 +18,15 @@ Three_days_later = today + timedelta(days=3)
 Ten_days_later = today + timedelta(days=10)
 Fifteen_days_later = today + timedelta(days=15)
 Twenty_days_later = today + timedelta(days=20)
-Twentyfive_days_later = today + timedelta(days=25)
+Thirty_days_later = today + timedelta(days=30)
 Current_day = today
 
 # 第一个查询表单
 #  st.sidebar.subheader('未来3日突变')
+# 第0个查询表单
+date0 = Current_day
+query_button0 = st.sidebar.button('今日突变查询', key='query0')
+# 第一个查询表单未来3日突变
 date1 = Three_days_later
 query_button1 = st.sidebar.button('未来3日突变查询', key='query1')
 # 第二个查询表单
@@ -39,8 +43,8 @@ query_button6 = st.sidebar.button('未来15日突变查询', key='query6')
 date7 = Twenty_days_later
 query_button7 = st.sidebar.button('未来20日突变查询', key='query7')
 # 第七个查询表单
-date8 = Twentyfive_days_later
-query_button8 = st.sidebar.button('未来25日突变查询', key='query8')
+date8 = Thirty_days_later
+query_button8 = st.sidebar.button('未来30日突变查询', key='query8')
 # 第三个查询表单
 st.sidebar.subheader('突变组合查询')
 map_location = st.sidebar.selectbox('选择地图', query.map_location)
@@ -57,6 +61,10 @@ col1, col2 = st.columns(2)
 
 with col1:
     # 根据表单1的查询按钮点击状态执行查询
+    if query_button0:
+        result0 = query.query0(str(date0))
+        st.write('今日突变: ')
+        st.write(result0)
     if query_button1:
         result1 = query.query1(str(date1))
         st.write('未来3日突变: ')
@@ -79,12 +87,12 @@ with col1:
         st.write(result7)
     if query_button8:
             result8 = query.query8(str(date8))
-            st.write('未来25日突变: ')
+            st.write('未来30日突变: ')
             st.write(result8)
     # 根据表单2的查询按钮点击状态执行查询
     if query_button2:
         result2 = query.query2(map_location, game_mode, str(date2))
-        st.write('突变查询: ')
+        st.write('突变组合查询: ')
         st.write(result2)
 
 with col2:
@@ -96,6 +104,6 @@ with col2:
 
     # 显示说明
     st.write('After the Fall查询器使用说明：')
-    st.write('1、点击左上角   “>”   ,打开查询界面。点击   “x”   ，关闭查询界面。')
+    st.write('1、点击左上角   “>”   ,打开查询界面进行查询。点击   “x”   ，关闭查询界面，查看结果。')
     st.write('2、“突变组合查询”，可查询某个突变组合在未来30天的出现日期。')
     st.write('数据提供: E-11')

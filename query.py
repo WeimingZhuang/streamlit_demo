@@ -128,6 +128,11 @@ class Query:
         # 筛选出date_list中的数据
         result8 = self.df[self.df['时间'].dt.strftime('%Y-%m-%d').isin(date_list)].reset_index(drop=True)
         return result8
+    def query0(self, date0):
+        date_list = pd.date_range(start=self.current_date, end=date0, freq='D').strftime('%Y-%m-%d').tolist()
+        # 筛选出date_list中的数据
+        result0 = self.df[self.df['时间'].dt.strftime('%Y-%m-%d').isin(date_list)].reset_index(drop=True)
+        return result0
     def query2(self, map_location, game_mode, date2):
         text = map_location + game_mode
         if text not in self.df['组合'].tolist():
