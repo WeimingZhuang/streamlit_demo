@@ -14,36 +14,16 @@ today = date.today()
 one_month_ago = today - timedelta(days=30)
 one_month_later = today + timedelta(days=30)
 one_week_later = today + timedelta(days=7)
-Three_days_later = today + timedelta(days=3)
-Ten_days_later = today + timedelta(days=10)
-Fifteen_days_later = today + timedelta(days=15)
-Twenty_days_later = today + timedelta(days=20)
-Thirty_days_later = today + timedelta(days=30)
 Current_day = today
 
 # 第一个查询表单
 #  st.sidebar.subheader('未来3日突变')
-# 第0个查询表单
-date0 = Current_day
-query_button0 = st.sidebar.button('今日突变查询', key='query0')
-# 第一个查询表单未来3日突变
-date1 = Three_days_later
-query_button1 = st.sidebar.button('未来3日突变查询', key='query1')
 # 第二个查询表单
 #  st.sidebar.subheader('未来7日天突变')
 date3 = one_week_later
 query_button3 = st.sidebar.button('未来7日突变查询', key='query3')
-# 第四个查询表单
-date5 = Ten_days_later
-query_button5 = st.sidebar.button('未来10日突变查询', key='query5')
-# 第五个查询表单
-date6 = Fifteen_days_later
-query_button6 = st.sidebar.button('未来15日突变查询', key='query6')
-# 第六个查询表单
-date7 = Twenty_days_later
-query_button7 = st.sidebar.button('未来20日突变查询', key='query7')
 # 第七个查询表单
-date8 = Thirty_days_later
+date8 = one_month_later
 query_button8 = st.sidebar.button('未来30日突变查询', key='query8')
 # 第三个查询表单
 st.sidebar.subheader('突变组合查询')
@@ -61,30 +41,10 @@ col1, col2 = st.columns(2)
 
 with col1:
     # 根据表单1的查询按钮点击状态执行查询
-    if query_button0:
-        result0 = query.query0(str(date0))
-        st.write('今日突变: ')
-        st.write(result0)
-    if query_button1:
-        result1 = query.query1(str(date1))
-        st.write('未来3日突变: ')
-        st.write(result1)
     if query_button3:
         result3 = query.query3(str(date3))
         st.write('未来7日突变: ')
         st.write(result3)
-    if query_button5:
-            result5 = query.query5(str(date5))
-            st.write('未来10日突变: ')
-            st.write(result5)
-    if query_button6:
-            result6 = query.query6(str(date6))
-            st.write('未来15日突变: ')
-            st.write(result6)
-    if query_button7:
-        result7 = query.query7(str(date7))
-        st.write('未来20日突变: ')
-        st.write(result7)
     if query_button8:
             result8 = query.query8(str(date8))
             st.write('未来30日突变: ')
@@ -104,6 +64,6 @@ with col2:
 
     # 显示说明
     st.write('After the Fall查询器使用说明：')
-    st.write('1、点击左上角   “>”   ,打开查询界面进行查询。点击   “x”   ，关闭查询界面，查看结果。')
+    st.write('1、点击左上角“>”,打开查询界面进行查询。点击“x”，关闭查询界面，查看结果。')
     st.write('2、“突变组合查询”，可查询某个突变组合在未来30天的出现日期。')
     st.write('数据提供: E-11')

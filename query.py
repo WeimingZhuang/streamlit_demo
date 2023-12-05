@@ -51,18 +51,7 @@ class Query:
         result = pd.DataFrame(data)
         return result
     
-    def query1(self, date1):
-        if date1 > self.current_date:
-            # 返回从今天到date1的日期列表
-            date_list = pd.date_range(start=self.current_date, end=date1, freq='D').strftime('%Y-%m-%d').tolist()
-        elif date1 < self.current_date:
-            # 返回从date1到今天的日期列表
-            date_list = pd.date_range(start=date1, end=self.current_date, freq='D').strftime('%Y-%m-%d').tolist()
-        else:
-            date_list = [date1]
-        # 筛选出date_list中的数据
-        result1 = self.df[self.df['时间'].dt.strftime('%Y-%m-%d').isin(date_list)].reset_index(drop=True)
-        return result1
+
     def query3(self, date3):
         if date3 > self.current_date:
             # 返回从今天到date1的日期列表
@@ -73,66 +62,22 @@ class Query:
         else:
             date_list = [date3]
         # 筛选出date_list中的数据
-        result1 = self.df[self.df['时间'].dt.strftime('%Y-%m-%d').isin(date_list)].reset_index(drop=True)
-        return result1
+        result3 = self.df[self.df['时间'].dt.strftime('%Y-%m-%d').isin(date_list)].reset_index(drop=True)
+        return result3
     def query4(self, date4):
-        if date4 > self.current_date:
-            # 返回从今天到date1的日期列表
-            date_list = pd.date_range(start=self.current_date, end=date4, freq='D').strftime('%Y-%m-%d').tolist()
-        elif date4 < self.current_date:
-            # 返回从date1到今天的日期列表
-            date_list = pd.date_range(start=date4, end=self.current_date, freq='D').strftime('%Y-%m-%d').tolist()
-        else:
-            date_list = [date4]
+        date_list = pd.date_range(start=self.current_date, end=date4, freq='D').strftime('%Y-%m-%d').tolist()
         # 筛选出date_list中的数据
         result4 = self.df[self.df['时间'].dt.strftime('%Y-%m-%d').isin(date_list)].reset_index(drop=True)
         return result4
-    def query5(self, date5):
-        if date5 > self.current_date:
-            # 返回从今天到date1的日期列表
-            date_list = pd.date_range(start=self.current_date, end=date5, freq='D').strftime('%Y-%m-%d').tolist()
-        elif date5 < self.current_date:
-            # 返回从date1到今天的日期列表
-            date_list = pd.date_range(start=date5, end=self.current_date, freq='D').strftime('%Y-%m-%d').tolist()
-        else:
-            date_list = [date5]
-        # 筛选出date_list中的数据
-        result5 = self.df[self.df['时间'].dt.strftime('%Y-%m-%d').isin(date_list)].reset_index(drop=True)
-        return result5
-    def query6(self, date6):
-        if date6 > self.current_date:
-            # 返回从今天到date1的日期列表
-            date_list = pd.date_range(start=self.current_date, end=date6, freq='D').strftime('%Y-%m-%d').tolist()
-        elif date6 < self.current_date:
-            # 返回从date1到今天的日期列表
-            date_list = pd.date_range(start=date6, end=self.current_date, freq='D').strftime('%Y-%m-%d').tolist()
-        else:
-            date_list = [date6]
-        # 筛选出date_list中的数据
-        result6 = self.df[self.df['时间'].dt.strftime('%Y-%m-%d').isin(date_list)].reset_index(drop=True)
-        return result6
-    def query7(self, date7):
-        if date7 > self.current_date:
-            # 返回从今天到date1的日期列表
-            date_list = pd.date_range(start=self.current_date, end=date7, freq='D').strftime('%Y-%m-%d').tolist()
-        elif date7 < self.current_date:
-            # 返回从date1到今天的日期列表
-            date_list = pd.date_range(start=date7, end=self.current_date, freq='D').strftime('%Y-%m-%d').tolist()
-        else:
-            date_list = [date7]
-        # 筛选出date_list中的数据
-        result7 = self.df[self.df['时间'].dt.strftime('%Y-%m-%d').isin(date_list)].reset_index(drop=True)
-        return result7
+
+
+
     def query8(self, date8):
         date_list = pd.date_range(start=self.current_date, end=date8, freq='D').strftime('%Y-%m-%d').tolist()
         # 筛选出date_list中的数据
         result8 = self.df[self.df['时间'].dt.strftime('%Y-%m-%d').isin(date_list)].reset_index(drop=True)
         return result8
-    def query0(self, date0):
-        date_list = pd.date_range(start=self.current_date, end=date0, freq='D').strftime('%Y-%m-%d').tolist()
-        # 筛选出date_list中的数据
-        result0 = self.df[self.df['时间'].dt.strftime('%Y-%m-%d').isin(date_list)].reset_index(drop=True)
-        return result0
+
     def query2(self, map_location, game_mode, date2):
         text = map_location + game_mode
         if text not in self.df['组合'].tolist():
