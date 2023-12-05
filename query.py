@@ -71,7 +71,6 @@ class Query:
         return result4
 
 
-
     def query8(self, date8):
         date_list = pd.date_range(start=self.current_date, end=date8, freq='D').strftime('%Y-%m-%d').tolist()
         # 筛选出date_list中的数据
