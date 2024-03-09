@@ -25,6 +25,61 @@ query_button3 = st.sidebar.button('未来7日突变查询', key='query3')
 # 第七个查询表单
 date8 = one_month_later
 query_button8 = st.sidebar.button('未来30日突变查询', key='query8')
+# 武器解锁查询表单
+query_button10 = st.sidebar.button('武器解锁条件查询')
+if query_button10:
+    # 显示字符
+    st.write("""武器解锁条件说明：
+    
+Revolver(左轮)-----完成大军模式6轮后解锁;
+
+Auto Shotgun(自动霰弹枪)-----通过黄色软盘解锁;
+
+Tommy Gun(汤普森冲锋枪)-----通过黄色软盘解锁;
+
+Shockwave Device(手腕冲击波)-----通过红色软盘解锁;
+
+Warhead(核弹)-----通过紫色软盘解锁;
+
+Rage Booster（红针）-----通过蓝色软盘解锁;
+
+LMG（轻机枪）-----完成林荫大道猎跑图后解锁;
+
+Saw blade(锯片)-----通过红色软盘解锁""")
+query_button11 = st.sidebar.button('突变说明')
+if query_button11:
+    # 显示字符
+    st.write("""突变条件说明：
+    
+人群
+
+怪有100%的冰甲覆盖;
+怪的数量增加50%;
+怪血量增加一倍。
+
+鳄龟
+
+普通小怪全部都变成爬行模式;
+普通小怪有100%的冰甲覆盖;
+爆炸伤害对怪无效。
+
+枪手
+
+手动换弹;
+弹药量减半;
+玩家受伤后的扣血量加倍。
+
+速通
+
+15分钟内完成;
+玩家受伤后不能回复血量;
+手动换弹。
+
+雪犁
+
+普通的小怪中弹后无硬直，不会后退，只能爆头击杀;
+爆炸对怪无效;
+玩家移动速度减半。""")
 # 第三个查询表单
 st.sidebar.subheader('突变组合查询')
 map_location = st.sidebar.selectbox('选择地图', query.map_location)
