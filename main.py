@@ -45,7 +45,10 @@ Rage Booster（红针）-----通过蓝色软盘解锁;
 
 LMG（轻机枪）-----完成林荫大道猎跑图后解锁;
 
-Saw blade(锯片)-----通过红色软盘解锁""")
+Saw blade(锯片)-----通过红色软盘解锁;
+
+Hunting Rifle(猎枪)-----通过红色软盘解锁""")
+
 query_button11 = st.sidebar.button('突变说明')
 if query_button11:
     # 显示字符
