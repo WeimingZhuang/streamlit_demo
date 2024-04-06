@@ -16,9 +16,9 @@ class Query:
         if start_date < one_month_later:
             new_df = {'时间': [], '组合': []}
 
-            # 生成100个时间点，每个时间点间隔8小时
+            # 生成100个时间点，每个时间点间隔2小时
             for i in range(100):
-                start_date += timedelta(hours=8)
+                start_date += timedelta(hours=2)
                 new_df['时间'].append(start_date)
                 new_df['组合'].append(df.iloc[i, 1])
 
